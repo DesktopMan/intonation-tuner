@@ -7,6 +7,8 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
+  // GitHub Pages serves the app from a sub-path (e.g. /intonation-tuner/); CI sets BASE_PATH.
+  base: process.env.BASE_PATH || '/',
   plugins: [
     vue(),
     // HTTPS in dev so the mic works when opened from a phone on the LAN.
